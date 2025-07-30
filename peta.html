@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peta Wilayah - Desa Clekatakan</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-map"></i>
+                <h1>Peta Wilayah</h1>
+            </div>
+            <p class="tagline">Desa Clekatakan</p>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Beranda
+                </a></li>
+                <li><a href="profil.html" class="nav-link">
+                    <i class="fas fa-info-circle"></i> Profil Desa
+                </a></li>
+                <li><a href="visi-misi.html" class="nav-link">
+                    <i class="fas fa-bullseye"></i> Visi & Misi
+                </a></li>
+                <li><a href="sejarah.html" class="nav-link">
+                    <i class="fas fa-book"></i> Sejarah
+                </a></li>
+                <li><a href="peta.html" class="nav-link active"> <i class="fas fa-map"></i> Peta Wilayah
+                </a></li>
+                <li><a href="potensi-desa.html" class="nav-link">
+                    <i class="fas fa-lightbulb"></i> Potensi Desa
+                </a></li>
+                <li><a href="struktur-organisasi.html" class="nav-link">
+                    <i class="fas fa-sitemap"></i> Struktur Organisasi
+                </a></li>
+            </ul>
+             <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="section active">
+            <div class="container">
+                <h2 class="section-title">Peta Wilayah Desa Clekatakan</h2>
+                
+                <div class="village-stats animate-on-scroll">
+                    <div class="stat-card-map">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                        <h4>Luas Wilayah</h4>
+                        <div class="stat-value">724</div>
+                        <div class="stat-label">Hektar</div>
+                    </div>
+                    
+                    <div class="stat-card-map">
+                        <i class="fas fa-mountain"></i>
+                        <h4>Ketinggian</h4>
+                        <div class="stat-value">45-150</div>
+                        <div class="stat-label">MDPL</div>
+                    </div>
+                    
+                    <div class="stat-card-map">
+                        <i class="fas fa-thermometer-half"></i>
+                        <h4>Suhu Rata-rata</h4>
+                        <div class="stat-value">28</div>
+                        <div class="stat-label">°Celsius</div>
+                    </div>
+                    
+                    <div class="stat-card-map">
+                        <i class="fas fa-cloud-rain"></i>
+                        <h4>Curah Hujan</h4>
+                        <div class="stat-value">2,500</div>
+                        <div class="stat-label">mm/tahun</div>
+                    </div>
+                </div>
+
+                <div class="map-container animate-on-scroll">
+                    <h3 class="map-interactive-title">
+                        <i class="fas fa-map-marked-alt"></i>
+                        Peta Interaktif Desa Clekatakan
+                    </h3>
+                    <div class="map-placeholder"> 
+                        <iframe
+                            class="map-embed"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14327.97579706308!2d109.26143929053424!3d-7.214336596703815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6ff2234e5db8d7%3A0x5027a76e3564c70!2sClekatakan%2C%20Kec.%20Pulosari%2C%20Kabupaten%20Pemalang%2C%20Jawa%20Tengah!5e1!3m2!1sid!2sid!4v1753805087694!5m2!1sid!2sid"
+                            allowfullscreen
+                            title="Peta Interaktif Desa Clekatakan">
+                        </iframe>
+                        </div>
+                    
+                    <div class="map-marker marker-village" data-info="Kantor Desa Clekatakan">
+                        <i class="fas fa-home"></i>
+                        <div class="marker-tooltip">Kantor Desa Clekatakan</div>
+                    </div>
+                    
+                    <div class="map-marker marker-school" data-info="SD Negeri Clekatakan">
+                        <i class="fas fa-school"></i>
+                        <div class="marker-tooltip">SD Negeri Clekatakan</div>
+                    </div>
+                    
+                    <div class="map-marker marker-health" data-info="Puskesmas Pembantu">
+                        <i class="fas fa-clinic-medical"></i>
+                        <div class="marker-tooltip">Puskesmas Pembantu</div>
+                    </div>
+                    
+                    <div class="map-marker marker-mosque" data-info="Masjid Jami' Al-Ikhlas">
+                        <i class="fas fa-mosque"></i>
+                        <div class="marker-tooltip">Masjid Jami' Al-Ikhlas</div>
+                    </div>
+                    
+                    <div class="map-marker marker-market" data-info="Pasar Desa Clekatakan">
+                        <i class="fas fa-store"></i>
+                        <div class="marker-tooltip">Pasar Desa Clekatakan</div>
+                    </div>
+                </div>
+
+                <div class="map-info-grid animate-on-scroll">
+                    <div class="map-info-card">
+                        <h4 class="map-card-title"><i class="fas fa-compass"></i> Koordinat Geografis</h4>
+                        <p><strong>Latitude:</strong> <span class="coordinate-display">-7.6298° S</span></p>
+                        <p><strong>Longitude:</strong> <span class="coordinate-display">109.5208° E</span></p>
+                        <p class="map-card-description">
+                            Desa Clekatakan terletak di koordinat geografis yang strategis di wilayah Jawa Tengah.
+                        </p>
+                    </div>
+                    
+                    <div class="map-info-card">
+                        <h4 class="map-card-title"><i class="fas fa-border-style"></i> Batas Wilayah</h4>
+                        <ul class="list-unstyled">
+                            <li class="map-list-item-bordered">
+                                <strong>Utara:</strong> Desa Siremeng
+                            </li>
+                            <li class="map-list-item-bordered">
+                                <strong>Selatan:</strong> Gunung Slamet
+                            </li>
+                            <li class="map-list-item-bordered">
+                                <strong>Timur:</strong> Desa Gombong
+                            </li>
+                            <li class="map-list-item">
+                                <strong>Barat:</strong> Desa Batursari
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="map-info-card">
+                        <h4 class="map-card-title"><i class="fas fa-road"></i> Aksesibilitas</h4>
+                        <ul class="list-unstyled">
+                            <li class="map-list-item-icon">
+                                <i class="fas fa-car map-list-icon"></i>
+                                <span>Jalan Raya: 2 km dari pusat desa</span>
+                            </li>
+                            <li class="map-list-item-icon">
+                                <i class="fas fa-bus map-list-icon"></i>
+                                <span>Transportasi Umum: Tersedia</span>
+                            </li>
+                            <li class="map-list-item-icon">
+                                <i class="fas fa-motorcycle map-list-icon"></i>
+                                <span>Ojek: 24 jam</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="map-info-card">
+                        <h4 class="map-card-title"><i class="fas fa-water"></i> Hidrografi</h4>
+                        <ul class="list-unstyled">
+                            <li class="map-list-item-icon">
+                                <i class="fas fa-tint map-list-icon"></i>
+                                <span>Sungai Clekatakan</span>
+                            </li>
+                            <li class="map-list-item-icon">
+                                <i class="fas fa-water map-list-icon"></i>
+                                <span>2 Mata Air Alami</span>
+                            </li>
+                            <li class="map-list-item-icon">
+                                <i class="fas fa-well-water-bottle map-list-icon"></i>
+                                <span>8 Sumur Bor</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="legend animate-on-scroll">
+                    <h3><i class="fas fa-list"></i> Legenda Peta</h3>
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <div class="legend-color residential"></div>
+                            <span>Pemukiman Penduduk</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color agriculture"></div>
+                            <span>Area Pertanian</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color forest"></div>
+                            <span>Hutan & Kebun</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color water"></div>
+                            <span>Sungai & Air</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color commercial"></div>
+                            <span>Area Komersial</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color public"></div>
+                            <span>Fasilitas Umum</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="region-division animate-on-scroll">
+                    <h3 class="region-division-title">
+                        Pembagian Wilayah Administratif
+                    </h3>
+                    <div class="regions-grid">
+                        <div class="region-card region-card-bordered-red">
+                            <h4 class="region-card-title">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Dusun Clekatakan Timur
+                            </h4>
+                            <div class="region-card-details">
+                                <p><strong>RT/RW:</strong> 5 RT, 2 RW</p>
+                                <p><strong>Penduduk:</strong> 890 jiwa</p>
+                                <p><strong>KK:</strong> 285 keluarga</p>
+                                <p><strong>Luas:</strong> 280 Ha</p>
+                            </div>
+                            <p class="region-card-description">
+                                Wilayah dengan mayoritas pertanian. Terdapat 2 sekolah dasar dan 1 puskesmas pembantu.
+                            </p>
+                        </div>
+
+                        <div class="region-card region-card-bordered-green">
+                            <h4 class="region-card-title">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Dusun Clekatakan Barat
+                            </h4>
+                            <div class="region-card-details">
+                                <p><strong>RT/RW:</strong> 4 RT, 2 RW</p>
+                                <p><strong>Penduduk:</strong> 768 jiwa</p>
+                                <p><strong>KK:</strong> 242 keluarga</p>
+                                <p><strong>Luas:</strong> 320 Ha</p>
+                            </div>
+                            <p class="region-card-description">
+                                Daerah perbukitan dengan perkebunan kopi dan cengkeh. Potensi wisata alam yang menarik.
+                            </p>
+                        </div>
+
+                        <div class="region-card region-card-bordered-blue">
+                            <h4 class="region-card-title">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Dusun Clekatakan Tengah
+                            </h4>
+                            <div class="region-card-details">
+                                <p><strong>RT/RW:</strong> 6 RT, 2 RW</p>
+                                <p><strong>Penduduk:</strong> 889 jiwa</p>
+                                <p><strong>KK:</strong> 329 keluarga</p>
+                            </div>
+                            <p class="region-card-description">
+                                Pusat pemerintahan dan perdagangan desa. Terdapat kantor desa, pasar, dan fasilitas umum utama.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="public-facilities animate-on-scroll">
+                    <h3 class="public-facilities-title">
+                        Fasilitas Publik
+                    </h3>
+                    <div class="facilities-grid">
+                        <div class="facility-item">
+                            <i class="fas fa-school public-facility-icon-blue"></i>
+                            <h4 class="public-facility-title">Pendidikan</h4>
+                            <ul class="list-unstyled">
+                                <li>3 Sekolah Dasar</li>
+                                <li>1 SMP Swasta</li>
+                                <li>2 PAUD</li>
+                                <li>1 TPA/TPQ</li>
+                            </ul>
+                        </div>
+
+                        <div class="facility-item">
+                            <i class="fas fa-clinic-medical public-facility-icon-green"></i>
+                            <h4 class="public-facility-title">Kesehatan</h4>
+                            <ul class="list-unstyled">
+                                <li>1 Puskesmas Pembantu</li>
+                                <li>2 Posyandu</li>
+                                <li>1 Poskesdes</li>
+                                <li>3 Bidan Desa</li>
+                            </ul>
+                        </div>
+
+                        <div class="facility-item">
+                            <i class="fas fa-mosque public-facility-icon-purple"></i>
+                            <h4 class="public-facility-title">Keagamaan</h4>
+                            <ul class="list-unstyled">
+                                <li>5 Masjid</li>
+                                <li>12 Mushola</li>
+                                <li>1 Gereja</li>
+                                <li>8 Pengajian Rutin</li>
+                            </ul>
+                        </div>
+
+                        <div class="facility-item">
+                            <i class="fas fa-store public-facility-icon-orange"></i>
+                            <h4 class="public-facility-title">Ekonomi</h4>
+                            <ul class="list-unstyled">
+                                <li>1 Pasar Desa</li>
+                                <li>15 Warung/Toko</li>
+                                <li>3 Koperasi</li>
+                                <li>25 UMKM</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="topography animate-on-scroll">
+                    <h3 class="topography-title">
+                        Kondisi Topografi
+                    </h3>
+                    <div class="topo-grid">
+                        <div class="topo-card">
+                            <h4 class="topo-card-title">
+                                <i class="fas fa-mountain topography-icon-red"></i>
+                                Dataran Tinggi (30%)
+                            </h4>
+                            <p class="topo-card-description">
+                                Wilayah perbukitan dengan ketinggian 100-150 mdpl. Cocok untuk perkebunan kopi, cengkeh, dan tanaman keras lainnya. Area ini juga memiliki potensi wisata alam.
+                            </p>
+                            <div class="topo-card-info">
+                                <strong>Luas:</strong> 225 Ha<br>
+                                <strong>Kemiringan:</strong> 15-30°<br>
+                                <strong>Jenis Tanah:</strong> Latosol
+                            </div>
+                        </div>
+
+                        <div class="topo-card">
+                            <h4 class="topo-card-title">
+                                <i class="fas fa-seedling topography-icon-green"></i>
+                                Dataran Sedang (50%)
+                            </h4>
+                            <p class="topo-card-description">
+                                Area utama pertanian dengan ketinggian 60-100 mdpl. Tanah subur dengan sistem irigasi yang baik. Sebagian besar penduduk bermukim di area ini.
+                            </p>
+                            <div class="topo-card-info">
+                                <strong>Luas:</strong> 375 Ha<br>
+                                <strong>Kemiringan:</strong> 5-15°<br>
+                                <strong>Jenis Tanah:</strong> Alluvial
+                            </div>
+                        </div>
+
+                        <div class="topo-card">
+                            <h4 class="topo-card-title">
+                                <i class="fas fa-water topography-icon-blue"></i>
+                                Dataran Rendah (20%)
+                            </h4>
+                            <p class="topo-card-description">
+                                Area lembah dengan ketinggian 45-60 mdpl. Dekat dengan sumber air dan sungai. Cocok untuk pertanian padi dan perikanan air tawar.
+                            </p>
+                            <div class="topo-card-info">
+                                <strong>Luas:</strong> 150 Ha<br>
+                                <strong>Kemiringan:</strong> 0-5°<br>
+                                <strong>Jenis Tanah:</strong> Regosol
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Desa Clekatakan</h4>
+                    <p>Portal informasi resmi Desa Clekatakan, Kecamatan Gombong, Kabupaten Kebumen, Jawa Tengah.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontak</h4>
+                    <p><i class="fas fa-phone"></i> (0287) 471234</p>
+                    <p><i class="fas fa-envelope"></i> clekatakan@desa.id</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Desa Clekatakan. Semua hak dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="modal-backdrop" class="modal-backdrop">
+        <div id="modal-content" class="modal-content">
+            <button id="modal-close-btn" class="modal-close-btn">×</button>
+            <h3 id="modal-title" class="modal-title"></h3>
+            <div id="modal-body" class="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    </body>
+</html>

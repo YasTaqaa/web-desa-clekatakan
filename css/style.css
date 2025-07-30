@@ -1,0 +1,2392 @@
+/* ===================================== */
+/* 1. Base Styles & Global Utilities     */
+/* ===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    overflow-x: hidden; /* Mencegah scroll horizontal yang tidak diinginkan */
+}
+
+/* Utility to prevent scrolling when modal/mobile menu is open */
+body.no-scroll {
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.list-unstyled {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Text alignment utilities */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-primary { color: #3498db !important; } /* Memastikan warna primer diterapkan */
+.text-muted { color: #666 !important; }
+
+/* Margin/Padding utilities (optional, can be expanded) */
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+.mb-5 { margin-bottom: 3rem; }
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+.mt-5 { margin-top: 3rem; }
+
+.p-2 { padding: 1rem !important; }
+.p-3 { padding: 1.5rem !important; }
+
+
+/* ===================================== */
+/* 2. Header & Navigation                */
+/* ===================================== */
+
+.header {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    padding: 3rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.08)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.06)"/></svg>') repeat;
+    animation: float 30s infinite linear;
+    z-index: 1;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(-50px) translateX(20px); }
+    100% { transform: translateY(-100px) translateX(0px); }
+}
+
+.header-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.logo i {
+    font-size: 3rem;
+    color: #3498db;
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-top: 0.5rem;
+}
+
+/* Navigation Styles */
+.nav {
+    background: rgba(52, 73, 94, 0.95);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    position: relative;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.nav-menu li {
+    margin: 0;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    text-decoration: none;
+    padding: 1rem 1.2rem;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.nav-link i {
+    font-size: 1rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: rgba(255, 255, 255, 0.1);
+    border-bottom-color: #3498db;
+    transform: translateY(-2px);
+}
+
+/* Hamburger Menu Icon */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+
+/* ===================================== */
+/* 3. Main Content & Section Styles      */
+/* ===================================== */
+
+.main-content {
+    background: white;
+    min-height: calc(100vh - 200px);
+}
+
+.section {
+    padding: 3rem 0;
+    /* Section container itself should be visible by default */
+}
+
+/* Base animation state for elements that should animate on scroll */
+/* Ini penting untuk memastikan konten Visi & Misi muncul */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* State when animation is triggered */
+.animate-in {
+    opacity: 1 !important; /* Pastikan terlihat */
+    transform: translateY(0) !important; /* Pastikan posisi benar */
+}
+
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    border-radius: 2px;
+}
+
+/* Common Card & Grid Styles */
+.card {
+    background: white;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+    color: #2c3e50;
+}
+
+.card-text {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.content-image {
+    border-radius: 10px;
+    margin-top: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    height: auto;
+}
+
+/* ===================================== */
+/* 4. Specific Page Section Styles       */
+/* ===================================== */
+
+/* --- Profile Page Styles --- */
+.profile-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.profile-image .image-placeholder {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(135deg, #ecf0f1, #bdc3c7);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #7f8c8d;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image .image-placeholder i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.profile-intro h3 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.profile-intro p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.8;
+}
+
+.profile-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.profile-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Main content and sidebar */
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.profile-text h3 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.profile-text h4 {
+    color: #34495e;
+    font-size: 1.3rem;
+    margin: 2rem 0 1rem 0;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+}
+
+.profile-text p {
+    margin-bottom: 1.5rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* Geographic Info Grid */
+.geographic-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.geo-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+}
+
+.geo-item i {
+    font-size: 1.5rem;
+    color: #3498db;
+}
+
+.geo-item strong {
+    display: block;
+    color: #2c3e50;
+}
+
+.geo-item span {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Demographic Grid */
+.demographic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.demo-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 3px solid #3498db;
+}
+
+.demo-card i {
+    font-size: 2.5rem;
+    color: #3498db;
+    margin-bottom: 1rem;
+}
+
+.demo-info h5 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.demo-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e74c3c;
+    margin: 0;
+}
+
+.demo-label {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Border Map */
+.border-map {
+    margin: 2rem 0;
+}
+
+.border-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.border-item {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid #3498db;
+}
+
+.border-item.north { grid-column: 1 / 3; }
+.border-item.south { grid-column: 1 / 3; }
+
+.border-item i {
+    font-size: 1.5rem;
+    color: #3498db;
+    margin-bottom: 0.5rem;
+}
+
+.border-item strong {
+    display: block;
+    color: #2c3e50;
+    margin-bottom: 0.25rem;
+}
+
+.border-item span {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Livelihood Stats */
+.livelihood-stats {
+    margin: 2rem 0;
+}
+
+.livelihood-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.livelihood-icon {
+    background: #3498db;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.livelihood-info {
+    flex: 1;
+}
+
+.livelihood-info h5 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #ecf0f1;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    width: 0%; /* Initial state for animation */
+    transition: width 2s ease;
+}
+
+/* Progress Bar Percentage Classes (for JavaScript animation) */
+.progress-bar .progress.width-10 { width: 10%; }
+.progress-bar .progress.width-15 { width: 15%; }
+.progress-bar .progress.width-20 { width: 20%; }
+.progress-bar .progress.width-35 { width: 35%; }
+.progress-bar .progress.width-45 { width: 45%; }
+.progress-bar .progress.width-55 { width: 55%; }
+.progress-bar .progress.width-60 { width: 60%; }
+.progress-bar .progress.width-65 { width: 65%; }
+.progress-bar .progress.width-70 { width: 70%; }
+.progress-bar .progress.width-75 { width: 75%; }
+.progress-bar .progress.width-85 { width: 85%; }
+.progress-bar .progress.width-90 { width: 90%; }
+.progress-bar .progress.width-100 { width: 100%; }
+
+.livelihood-info span {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Sidebar Styles */
+.profile-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.info-box,
+.contact-box,
+.facilities-box {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ecf0f1;
+}
+
+.info-box h4,
+.contact-box h4,
+.facilities-box h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info-box ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.info-box li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.info-box li:last-child {
+    border-bottom: none;
+}
+
+.contact-item,
+.facility-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.contact-item:last-child,
+.facility-item:last-child {
+    margin-bottom: 0;
+}
+
+.contact-item i,
+.facility-item i {
+    color: #3498db;
+    width: 20px;
+    flex-shrink: 0;
+}
+
+/* Profile Stats */
+.profile-stats {
+    margin-top: 4rem;
+}
+
+.profile-stats h3 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 1px solid #ecf0f1;
+}
+
+.stat-card i {
+    font-size: 3rem;
+    color: #3498db;
+    margin-bottom: 1rem;
+}
+
+.stat-card h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.stat-details p {
+    margin: 0.5rem 0;
+    color: #666;
+}
+
+/* --- Visi & Misi Page Styles --- */
+.vision-section,
+.mission-section {
+    margin-bottom: 4rem;
+}
+
+.vision-card,
+.mission-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+
+.card-header {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.icon-wrapper {
+    background: rgba(255, 255, 255, 0.2);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.icon-wrapper i {
+    font-size: 2.5rem;
+}
+
+.card-header h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.card-content {
+    padding: 2rem;
+}
+
+.vision-card blockquote {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: #2c3e50;
+    font-style: italic;
+    text-align: center;
+    border-left: 4px solid #3498db;
+    padding-left: 1rem;
+    margin: 0;
+}
+
+.vision-explanation {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid #ecf0f1;
+}
+
+.vision-explanation h4 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.explanation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.explanation-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.explanation-item i {
+    color: #3498db;
+    font-size: 1.5rem;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+.explanation-item strong {
+    display: block;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.explanation-item p {
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Mission List */
+.mission-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.mission-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.mission-number {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.mission-content h4 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.mission-content p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.mission-targets {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.mission-targets span {
+    background: #f8f9fa;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    color: #3498db;
+    border: 1px solid #3498db;
+}
+
+/* Objectives Section */
+.objectives-section {
+    margin: 4rem 0;
+}
+
+.objectives-section h3 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.objectives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.obj-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border: 1px solid #ecf0f1;
+}
+
+.obj-icon {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.obj-icon i {
+    font-size: 1.5rem;
+}
+
+.obj-content h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.obj-content p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.obj-indicators {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #3498db;
+    font-size: 0.9rem;
+}
+
+.indicator i {
+    font-size: 0.8rem;
+}
+
+/* Strategy Timeline */
+.strategy-section {
+    margin: 4rem 0;
+}
+
+.strategy-section h3 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.strategy-timeline {
+    position: relative;
+    padding-left: 2rem;
+    max-width: 800px; /* Constrain width for better readability */
+    margin: 0 auto;
+}
+
+.strategy-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, #3498db, #2980b9);
+    border-radius: 2px;
+}
+
+.strategy-timeline .timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 2rem;
+}
+
+.strategy-timeline .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem;
+    top: 0.5rem;
+    width: 20px;
+    height: 20px;
+    background: #3498db;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 3px #3498db;
+    z-index: 1;
+}
+
+.timeline-period {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.timeline-content h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.timeline-content ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.timeline-content li {
+    color: #666;
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.timeline-content li::before {
+    content: '▶';
+    color: #3498db;
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+}
+
+/* Success Indicators */
+.success-indicators {
+    margin: 4rem 0;
+}
+
+.success-indicators h3 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.indicators-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.indicator-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ecf0f1;
+}
+
+.indicator-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #ecf0f1;
+}
+
+.indicator-header i {
+    font-size: 2rem;
+    color: #3498db;
+}
+
+.indicator-header h4 {
+    color: #2c3e50;
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.indicator-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.indicator-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.indicator-item span {
+    color: #2c3e50;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* --- History Page Styles --- */
+.history-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.hero-text h3 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.8;
+}
+
+.hero-image .image-placeholder {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(135deg, #ecf0f1, #bdc3c7);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #7f8c8d;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.hero-image .image-placeholder i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+/* Origin Section */
+.origin-section {
+    margin-bottom: 4rem;
+}
+
+.origin-section h3 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.origin-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.origin-story {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.story-icon {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.story-icon i {
+    font-size: 2rem;
+}
+
+.story-text h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.story-text p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* History Timeline Section */
+.timeline-section {
+    margin: 4rem 0;
+}
+
+.timeline-section h3 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, #3498db, #2980b9);
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    margin: 3rem 0;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.timeline-item:nth-child(odd) {
+    flex-direction: row;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-date {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.timeline-date .year {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #3498db;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-date .era {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.timeline-content {
+    flex: 1;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.timeline-content h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.timeline-content p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.timeline-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f8f9fa;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #3498db;
+}
+
+.detail-item i {
+    font-size: 0.8rem;
+}
+
+/* Historical Figures */
+.historical-figures {
+    margin: 4rem 0;
+}
+
+.historical-figures h3 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.figures-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.figure-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.figure-avatar {
+    margin-bottom: 1rem;
+}
+
+.figure-avatar i {
+    font-size: 4rem;
+    color: #3498db;
+}
+
+.figure-info h4 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.figure-role {
+    color: #3498db;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.figure-desc {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Culture and Tradition */
+.culture-tradition {
+    margin: 4rem 0;
+}
+
+.culture-tradition h3 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.culture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.culture-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.culture-icon {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.culture-icon i {
+    font-size: 1.5rem;
+}
+
+.culture-content h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.culture-content p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.culture-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.culture-tag {
+    background: #f8f9fa;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    color: #3498db;
+    border: 1px solid #3498db;
+}
+
+/* Historical Events */
+.historical-events {
+    margin: 4rem 0;
+}
+
+.historical-events h3 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.events-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.event-item {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.event-year {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    min-width: 80px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.event-content h4 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.event-content p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Modern Development */
+.modern-development {
+    margin: 4rem 0;
+}
+
+.modern-development h3 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.development-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.dev-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.dev-card i {
+    font-size: 3rem;
+    color: #3498db;
+    margin-bottom: 1rem;
+}
+
+.dev-card h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.dev-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* --- Map Specific Styles --- */
+.village-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusted minmax to ensure at least 200px width per column */
+    gap: 2rem; /* Adjusted gap for better spacing */
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.stat-card-map {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ecf0f1;
+}
+
+.stat-card-map i {
+    font-size: 3rem;
+    color: #3498db;
+    margin-bottom: 1rem;
+}
+
+.stat-card-map h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #e74c3c;
+    margin: 0.5rem 0;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.map-container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 4rem;
+}
+
+.map-interactive-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+}
+
+/* Updated map-placeholder to correctly contain the iframe and make it responsive */
+.map-placeholder {
+    width: 100%;
+    position: relative; 
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio (e.g., for 800x450 iframe) */
+    height: 0;
+    overflow: hidden;
+    background: linear-gradient(135deg, #a7bfe8, #619af0); /* Fallback/loading background */
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+}
+
+.map-placeholder iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block; /* Ensure it behaves as a block element */
+    border-radius: 8px; /* Apply border-radius to the iframe itself */
+}
+
+/* Custom map markers and tooltips are now hidden by default in this setup, 
+   as they don't overlay correctly on a simple Google Maps iframe embed.
+   If custom interactive markers are desired, a more advanced solution using 
+   Google Maps JavaScript API would be needed. */
+.map-marker {
+    display: none; 
+}
+
+.marker-tooltip {
+    display: none; 
+}
+
+
+/* Specific marker positions (example, these are effectively hidden) */
+.marker-village { top: 40%; left: 50%; }
+.marker-school { top: 25%; left: 30%; }
+.marker-health { top: 60%; left: 70%; }
+.marker-mosque { top: 75%; left: 45%; }
+.marker-market { top: 30%; left: 65%; }
+
+.map-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.map-info-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ecf0f1;
+}
+
+.map-card-title {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.map-card-description {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.map-info-card strong {
+    color: #34495e;
+}
+
+.map-list-item-bordered {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.map-list-item-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+}
+
+.map-list-icon {
+    color: #3498db;
+    width: 20px;
+    flex-shrink: 0;
+}
+
+.legend {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.legend h3 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.legend-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.legend-color {
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.legend-color.residential { background-color: #f39c12; } /* Orange */
+.legend-color.agriculture { background-color: #27ae60; } /* Green */
+.legend-color.forest { background-color: #1abc9c; } /* Turquoise */
+.legend-color.water { background-color: #3498db; } /* Blue */
+.legend-color.commercial { background-color: #9b59b6; } /* Purple */
+.legend-color.public { background-color: #e67e22; } /* Carrot */
+
+.region-division {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 4rem;
+}
+
+.region-division-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+}
+
+.regions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.region-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 2px solid;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.region-card-bordered-red { border-color: #e74c3c; }
+.region-card-bordered-green { border-color: #2ecc71; }
+.region-card-bordered-blue { border-color: #3498db; }
+
+.region-card-title {
+    color: #2c3e50;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.region-card-details p {
+    margin-bottom: 0.5rem;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.region-card-details strong {
+    color: #34495e;
+}
+
+.region-card-description {
+    color: #555;
+    line-height: 1.6;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #ddd;
+    font-size: 0.9rem;
+}
+
+.public-facilities {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 4rem;
+}
+
+.public-facilities-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+}
+
+.facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.facility-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.public-facility-icon-blue { color: #3498db; }
+.public-facility-icon-green { color: #2ecc71; }
+.public-facility-icon-purple { color: #9b59b6; }
+.public-facility-icon-orange { color: #e67e22; }
+
+.facility-item i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.public-facility-title {
+    color: #2c3e50;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.facility-item ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.facility-item li {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.topography {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 4rem;
+}
+
+.topography-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+}
+
+.topo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.topo-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.topography-icon-red { color: #e74c3c; }
+.topography-icon-green { color: #2ecc71; }
+.topography-icon-blue { color: #3498db; }
+
+.topo-card-title {
+    color: #2c3e50;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.topo-card-title i {
+    font-size: 1.8rem;
+}
+
+.topo-card-description {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.topo-card-info {
+    color: #555;
+    font-size: 0.85rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #ddd;
+}
+
+.topo-card-info strong {
+    color: #34495e;
+}
+
+/* Specific styles for Potensi Desa page grids */
+.potensi-wisata-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.row-potensi-alam {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem; /* Add gap for consistent spacing between columns */
+    justify-content: center; /* Center items if they don't fill the row */
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.row-potensi-alam > div { /* Targeting the col-md-6 elements */
+    flex: 1 1 calc(50% - 1rem); /* Distribute space, accounting for gap */
+    max-width: calc(50% - 1rem); /* Max width to ensure two columns on larger screens */
+    box-sizing: border-box; /* Include padding/border in element's total width */
+    /* Ensure content image within these divs is responsive */
+    text-align: center; /* Center the image within its column */
+}
+
+/* Structure Organisasi placeholder style */
+.placeholder-content {
+    text-align: center;
+    padding: 3rem 0;
+    background: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    margin-top: 3rem;
+}
+
+.placeholder-text {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.placeholder-icon {
+    font-size: 4rem;
+    color: #3498db;
+    margin-bottom: 1.5rem;
+}
+
+.placeholder-note {
+    font-style: italic;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+
+/* ===================================== */
+/* 5. Footer Styles                      */
+/* ===================================== */
+
+.footer {
+    background: #2c3e50;
+    color: white;
+    padding: 3rem 0 1rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+    color: #3498db;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.footer-section p {
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.footer-section i {
+    color: #3498db;
+    margin-right: 0.5rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #34495e;
+    opacity: 0.8;
+}
+
+
+/* ===================================== */
+/* 6. Modal Styles                       */
+/* ===================================== */
+
+#modal-backdrop {
+    display: none; /* Controlled by JS */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    animation: fadeInModal 0.3s ease-out;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 550px;
+    width: 100%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    position: relative;
+    animation: slideInModal 0.3s ease-out;
+}
+
+@keyframes slideInModal {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.2s ease;
+}
+.modal-close-btn:hover {
+    color: #e74c3c;
+}
+
+.modal-title {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.75rem;
+}
+
+.modal-body p {
+    margin-bottom: 0.8rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.modal-body strong {
+    color: #34495e;
+}
+
+
+/* ===================================== */
+/* 7. Animations (Intersection Observer) */
+/* ===================================== */
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-in {
+    opacity: 1 !important; /* Memastikan visibilitas */
+    transform: translateY(0) !important; /* Memastikan posisi */
+}
+
+/* Specific timeline item animations (optional, can be combined with general) */
+.timeline-item:nth-child(odd) .timeline-content.animate-in {
+    animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.timeline-item:nth-child(even) .timeline-content.animate-in {
+    animation: slideInRight 0.6s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+
+/* ===================================== */
+/* 8. Responsive Design Media Queries    */
+/* ===================================== */
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 992px) {
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .nav-link {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+    }
+    .profile-hero,
+    .history-hero {
+        grid-template-columns: 1fr;
+        gap: 2rem; /* Mengurangi jarak untuk layar kecil */
+    }
+    .profile-main {
+        grid-template-columns: 1fr;
+    }
+    .origin-content {
+        grid-template-columns: 1fr;
+    }
+    .timeline-item {
+        flex-direction: column;
+        align-items: flex-start; /* Align content to the left for vertical timeline */
+        padding-left: 60px;
+    }
+    .timeline-item:nth-child(even) {
+        flex-direction: column; /* Ensure consistent column layout for both even/odd */
+    }
+    .timeline::before {
+        left: 20px;
+        transform: translateX(0);
+    }
+    .strategy-timeline .timeline-item::before,
+    .timeline-item::before { /* Adjust marker position for vertical timeline */
+        left: 20px; /* Position directly on the line */
+        transform: translateX(-50%); /* Center the circle on the line */
+    }
+    .timeline-date {
+        /* Removed margin-left to prevent overflow on mobile */
+        margin-bottom: 1rem;
+        text-align: left; /* Align date to the left */
+        padding-left: 0; /* Ensure no extra padding from previous rules */
+    }
+    .timeline-content.animate-in {
+        animation: slideInUp 0.6s ease-out forwards !important;
+    }
+    @keyframes slideInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Menyesuaikan grid untuk 2 kolom pada tablet jika sebelumnya 3+ */
+    .explanation-grid,
+    .objectives-grid,
+    .figures-grid,
+    .culture-grid,
+    .development-cards,
+    .map-info-grid,
+    .regions-grid,
+    .facilities-grid,
+    .topo-grid,
+    .potensi-wisata-grid,
+    .stats-grid,
+    .village-stats, /* Perbaikan khusus untuk village-stats */
+    .indicators-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem; /* Mengurangi jarak */
+    }
+    .demographic-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .row-potensi-alam {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .row-potensi-alam > div { /* Target the direct children (col-md-6) */
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* Add col-md-6 behavior for larger screens (desktop/tablet) */
+@media (min-width: 769px) {
+    .row-potensi-alam {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -1rem; /* Adjust negative margins for gap */
+        margin-left: -1rem;
+    }
+    .row-potensi-alam .col-md-6 {
+        flex: 0 0 calc(50% - 2rem); /* 50% width minus combined gap */
+        max-width: calc(50% - 2rem);
+        padding-right: 1rem; /* Add padding to simulate gap */
+        padding-left: 1rem;
+    }
+}
+
+
+/* Small devices (phones, 767px and below) */
+@media (max-width: 767px) {
+    .header {
+        padding: 2.5rem 0;
+    }
+    .header h1 {
+        font-size: 2.2rem;
+    }
+    .logo i {
+        font-size: 2.2rem;
+    }
+    .tagline {
+        font-size: 1rem;
+    }
+
+    .nav-container {
+        justify-content: space-between;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 0;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(52, 73, 94, 0.98);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        text-align: center;
+        max-height: 0; /* Kondisi awal tersembunyi */
+        overflow: hidden;
+        transition: max-height 0.4s ease-out;
+        padding-bottom: 10px; /* Sedikit padding di bawah menu saat terbuka */
+    }
+    
+    .nav-menu.active {
+        display: flex;
+        max-height: 500px; /* Cukup tinggi untuk menampilkan semua link */
+        overflow-y: auto; /* Memungkinkan scrolling jika menu terlalu panjang */
+    }
+
+    .nav-link {
+        padding: 0.75rem 1rem;
+        justify-content: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .nav-menu li:last-child .nav-link {
+        border-bottom: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+    
+    .section {
+        padding: 2rem 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    /* Memaksa satu kolom untuk sebagian besar grid pada layar sangat kecil */
+    .geographic-info,
+    .demographic-grid,
+    .stats-grid,
+    .objectives-grid,
+    .figures-grid,
+    .culture-grid,
+    .development-cards,
+    .map-info-grid,
+    .regions-grid,
+    .facilities-grid,
+    .topo-grid,
+    .potensi-wisata-grid,
+    .livelihood-stats,
+    .village-stats, /* Perbaikan khusus untuk village-stats */
+    .explanation-grid,
+    .indicators-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem; /* Jarak yang konsisten */
+    }
+    
+    .border-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+    
+    .border-item.north,
+    .border-item.south {
+        grid-column: 1;
+    }
+    
+    .mission-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .mission-targets {
+        justify-content: center;
+    }
+    
+    .event-item {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .event-year {
+        align-self: flex-start;
+        min-width: auto;
+    }
+
+    .profile-sidebar {
+        gap: 1.5rem;
+    }
+    .info-box, .contact-box, .facilities-box {
+        padding: 1rem;
+    }
+    .stat-card, .demo-card {
+        padding: 1rem;
+    }
+    .stat-card i, .demo-card i {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    .stat-value, .demo-number {
+        font-size: 1.5rem;
+    }
+
+    #modal-content {
+        padding: 1.5rem;
+    }
+    .modal-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* Very small devices (extra small phones, 480px and below) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    .header h1 {
+        font-size: 1.8rem;
+    }
+    .logo i {
+        font-size: 1.8rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .profile-image .image-placeholder {
+        height: 250px;
+    }
+    .map-placeholder {
+        height: 350px;
+    }
+    .map-marker {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+    .marker-tooltip {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.8rem;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-section p {
+        justify-content: center;
+    }
+    .footer-section i {
+        margin-right: 0.25rem;
+    }
+}
+
+/* New/Updated styles for iframe and its container */
+/* This specific class was in your HTML, adjusting its styles */
+.map-placeholder { /* This class is already on the div containing the iframe */
+  width: 100%;
+  position: relative;
+  padding-bottom: 56.25%; /* For a 16:9 aspect ratio (height is 56.25% of width) */
+  height: 0; /* Important for padding-bottom trick to work */
+  overflow: hidden;
+  background: linear-gradient(135deg, #a7bfe8, #619af0); /* Fallback/loading background */
+  border-radius: 10px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+}
+
+.map-placeholder iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block; /* Ensure it behaves as a block element */
+  border-radius: 8px; /* Apply border-radius to the iframe itself */
+}
+
+.map-marker {
+    display: none; 
+}
+
+.marker-tooltip {
+    display: none; 
+}
+
+/* Removed an extra closing curly brace '}' from the end of your style.css in previous version */
