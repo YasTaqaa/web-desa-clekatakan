@@ -467,23 +467,54 @@ body.no-scroll {
 
 .border-grid {
     display: grid;
+    grid-template-rows: auto auto auto;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 1rem;
-    max-width: 400px;
-    margin: 0 auto;
+    gap: 1.2rem; 
+    max-width: 500px;
+    margin: 0 auto; 
+    padding: 10px;
+}
+
+.border-grid {
+    grid-template-areas:
+        "utara utara" 
+        "barat timur"   
+        "selatan selatan"; 
 }
 
 .border-item {
-    background: #f8f9fa;
-    padding: 1rem;
-    border-radius: 8px;
+    background: #fcfdff; 
+    padding: 1.5rem 1rem; 
+    border-radius: 10px;
     text-align: center;
-    border: 2px solid #3498db;
+    border: 2px solid #caddeb; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); 
+    transition: all 0.2s ease-in-out;
 }
 
-.border-item.north { grid-column: 1 / 3; }
-.border-item.south { grid-column: 1 / 3; }
+.border-item.north {
+    grid-column: 1 / span 2; 
+    grid-row: 1;
+    width: 200px; 
+    justify-self: center;
+}
+
+.border-item.east {
+    grid-column: 2; 
+    grid-row: 2; 
+}
+
+.border-item.west {
+    grid-column: 1; 
+    grid-row: 2; 
+}
+
+.border-item.south {
+    grid-column: 1 / span 2;
+    grid-row: 3; 
+    width: 200px;
+    justify-self: center;
+}
 
 .border-item i {
     font-size: 1.5rem;
@@ -618,11 +649,14 @@ body.no-scroll {
 
 .contact-item,
 .facility-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-    color: #555;
+    display: flex; 
+    align-items: center;
+    gap: 1.5rem; 
+    padding: 18px 0; 
+    color: #555; 
+    font-size: 1.15rem;
+    border-bottom: 1px solid #f0f0f0; 
+    transition: background-color 0.2s ease-in-out;
 }
 
 .contact-item:last-child,
@@ -632,9 +666,19 @@ body.no-scroll {
 
 .contact-item i,
 .facility-item i {
-    color: #3498db;
-    width: 20px;
-    flex-shrink: 0;
+    color: #3499db; 
+    font-size: 3rem; 
+    width: 80px; 
+    height: 80px; 
+    flex-shrink: 0; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.facility-item span {
+    flex-grow: 1;
+    line-height: 1.4;
 }
 
 /* Profile Stats */
@@ -2206,16 +2250,16 @@ body.no-scroll {
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         width: 100%;
         text-align: center;
-        max-height: 0; /* Kondisi awal tersembunyi */
+        max-height: 0; 
         overflow: hidden;
         transition: max-height 0.4s ease-out;
-        padding-bottom: 10px; /* Sedikit padding di bawah menu saat terbuka */
+        padding-bottom: 10px; 
     }
     
     .nav-menu.active {
         display: flex;
-        max-height: 500px; /* Cukup tinggi untuk menampilkan semua link */
-        overflow-y: auto; /* Memungkinkan scrolling jika menu terlalu panjang */
+        max-height: 500px;
+        overflow-y: auto; 
     }
 
     .nav-link {
@@ -2254,11 +2298,11 @@ body.no-scroll {
     .topo-grid,
     .potensi-wisata-grid,
     .livelihood-stats,
-    .village-stats, /* Perbaikan khusus untuk village-stats */
+    .village-stats, 
     .explanation-grid,
     .indicators-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem; /* Jarak yang konsisten */
+        gap: 1.5rem; 
     }
     
     .border-grid {
@@ -2341,6 +2385,7 @@ body.no-scroll {
         height: 30px;
         font-size: 0.8rem;
     }
+
     .marker-tooltip {
         font-size: 0.7rem;
         padding: 0.4rem 0.8rem;
