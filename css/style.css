@@ -16,12 +16,11 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #F5F5DC;
     min-height: 100vh;
-    overflow-x: hidden; /* Mencegah scroll horizontal yang tidak diinginkan */
+    overflow-x: hidden;
 }
 
-/* Utility to prevent scrolling when modal/mobile menu is open */
 body.no-scroll {
     overflow: hidden;
 }
@@ -37,14 +36,12 @@ body.no-scroll {
     padding-left: 0;
 }
 
-/* Text alignment utilities */
 .text-center { text-align: center; }
 .text-left { text-align: left; }
 .text-right { text-align: right; }
-.text-primary { color: #3498db !important; } /* Memastikan warna primer diterapkan */
+.text-primary { color: #1A531A !important; }
 .text-muted { color: #666 !important; }
 
-/* Margin/Padding utilities (optional, can be expanded) */
 .mb-1 { margin-bottom: 0.5rem; }
 .mb-2 { margin-bottom: 1rem; }
 .mb-3 { margin-bottom: 1.5rem; }
@@ -111,7 +108,7 @@ body.no-scroll {
 
 .logo i {
     font-size: 3rem;
-    color: #3498db;
+    color: #1A531A; 
 }
 
 .header h1 {
@@ -127,9 +124,8 @@ body.no-scroll {
     margin-top: 0.5rem;
 }
 
-/* Navigation Styles */
 .nav {
-    background: rgba(52, 73, 94, 0.95);
+    background: rgba(26, 83, 26, 0.95);
     padding: 0;
     position: sticky;
     top: 0;
@@ -180,11 +176,10 @@ body.no-scroll {
 .nav-link:hover,
 .nav-link.active {
     background: rgba(255, 255, 255, 0.1);
-    border-bottom-color: #3498db;
+    border-bottom-color: #1A531A; 
     transform: translateY(-2px);
 }
 
-/* Hamburger Menu Icon */
 .hamburger {
     display: none;
     cursor: pointer;
@@ -197,13 +192,16 @@ body.no-scroll {
     top: 50%;
     transform: translateY(-50%);
     z-index: 1001;
+    padding: 5px;
+    background-color: rgba(26, 83, 26, 0.7);
+    border-radius: 5px;
 }
 
 .hamburger span {
     display: block;
     width: 100%;
     height: 3px;
-    background-color: white;
+    background-color: #F5F5DC;
     border-radius: 3px;
     transition: all 0.3s ease-in-out;
 }
@@ -226,27 +224,24 @@ body.no-scroll {
 /* ===================================== */
 
 .main-content {
-    background: white;
+    background: #F5F5DC;
     min-height: calc(100vh - 200px);
+    flex-grow: 1;
 }
 
 .section {
     padding: 3rem 0;
-    /* Section container itself should be visible by default */
 }
 
-/* Base animation state for elements that should animate on scroll */
-/* Ini penting untuk memastikan konten Visi & Misi muncul */
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* State when animation is triggered */
 .animate-in {
-    opacity: 1 !important; /* Pastikan terlihat */
-    transform: translateY(0) !important; /* Pastikan posisi benar */
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }
 
 
@@ -266,11 +261,10 @@ body.no-scroll {
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: linear-gradient(45deg, #3498db, #2980b9);
+    background: linear-gradient(45deg, #1A531A, #0F330F); /* Changed from #3498db, #2980b9 */
     border-radius: 2px;
 }
 
-/* Common Card & Grid Styles */
 .card {
     background: white;
     border: none;
@@ -319,7 +313,6 @@ body.no-scroll {
 /* 4. Specific Page Section Styles       */
 /* ===================================== */
 
-/* --- Profile Page Styles --- */
 .profile-hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -361,7 +354,7 @@ body.no-scroll {
 
 .profile-main {
     display: grid;
-    grid-template-columns: 2fr 1fr; /* Main content and sidebar */
+    grid-template-columns: 2fr 1fr;
     gap: 3rem;
     margin-bottom: 4rem;
 }
@@ -376,7 +369,7 @@ body.no-scroll {
     color: #34495e;
     font-size: 1.3rem;
     margin: 2rem 0 1rem 0;
-    border-bottom: 2px solid #3498db;
+    border-bottom: 2px solid #1A531A; 
     padding-bottom: 0.5rem;
 }
 
@@ -386,7 +379,6 @@ body.no-scroll {
     line-height: 1.8;
 }
 
-/* Geographic Info Grid */
 .geographic-info {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -401,12 +393,12 @@ body.no-scroll {
     background: #f8f9fa;
     padding: 1rem;
     border-radius: 8px;
-    border-left: 4px solid #3498db;
+    border-left: 4px solid #1A531A; 
 }
 
 .geo-item i {
     font-size: 1.5rem;
-    color: #3498db;
+    color: #1A531A; 
 }
 
 .geo-item strong {
@@ -419,7 +411,6 @@ body.no-scroll {
     font-size: 0.9rem;
 }
 
-/* Demographic Grid */
 .demographic-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -433,12 +424,12 @@ body.no-scroll {
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     text-align: center;
-    border: 3px solid #3498db;
+    border: 3px solid #1A531A; 
 }
 
 .demo-card i {
     font-size: 2.5rem;
-    color: #3498db;
+    color: #1A531A; 
     margin-bottom: 1rem;
 }
 
@@ -469,56 +460,49 @@ body.no-scroll {
     display: grid;
     grid-template-rows: auto auto auto;
     grid-template-columns: 1fr 1fr;
-    gap: 1.2rem; 
+    gap: 1.2rem;
     max-width: 500px;
-    margin: 0 auto; 
+    margin: 0 auto;
     padding: 10px;
-}
-
-.border-grid {
     grid-template-areas:
-        "utara utara" 
-        "barat timur"   
-        "selatan selatan"; 
+        "utara utara"
+        "barat timur"
+        "selatan selatan";
 }
 
 .border-item {
-    background: #fcfdff; 
-    padding: 1.5rem 1rem; 
+    background: #fcfdff;
+    padding: 1.5rem 1rem;
     border-radius: 10px;
     text-align: center;
-    border: 2px solid #caddeb; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); 
+    border: 2px solid #caddeb;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     transition: all 0.2s ease-in-out;
 }
 
 .border-item.north {
-    grid-column: 1 / span 2; 
-    grid-row: 1;
-    width: 200px; 
+    grid-area: utara;
+    width: 200px;
     justify-self: center;
 }
 
 .border-item.east {
-    grid-column: 2; 
-    grid-row: 2; 
+    grid-area: timur;
 }
 
 .border-item.west {
-    grid-column: 1; 
-    grid-row: 2; 
+    grid-area: barat;
 }
 
 .border-item.south {
-    grid-column: 1 / span 2;
-    grid-row: 3; 
+    grid-area: selatan;
     width: 200px;
     justify-self: center;
 }
 
 .border-item i {
     font-size: 1.5rem;
-    color: #3498db;
+    color: #1A531A; /* Changed from #3498db */
     margin-bottom: 0.5rem;
 }
 
@@ -533,7 +517,6 @@ body.no-scroll {
     font-size: 0.9rem;
 }
 
-/* Livelihood Stats */
 .livelihood-stats {
     margin: 2rem 0;
 }
@@ -549,7 +532,7 @@ body.no-scroll {
 }
 
 .livelihood-icon {
-    background: #3498db;
+    background: #1A531A; /* Changed from #3498db */
     color: white;
     width: 50px;
     height: 50px;
@@ -581,12 +564,11 @@ body.no-scroll {
 
 .progress {
     height: 100%;
-    background: linear-gradient(45deg, #3498db, #2980b9);
-    width: 0%; /* Initial state for animation */
+    background: linear-gradient(45deg, #1A531A, #0F330F); /* Changed from #3498db, #2980b9 */
+    width: 0%;
     transition: width 2s ease;
 }
 
-/* Progress Bar Percentage Classes (for JavaScript animation) */
 .progress-bar .progress.width-10 { width: 10%; }
 .progress-bar .progress.width-15 { width: 15%; }
 .progress-bar .progress.width-20 { width: 20%; }
@@ -606,7 +588,6 @@ body.no-scroll {
     font-size: 0.9rem;
 }
 
-/* Sidebar Styles */
 .profile-sidebar {
     display: flex;
     flex-direction: column;
@@ -649,13 +630,13 @@ body.no-scroll {
 
 .contact-item,
 .facility-item {
-    display: flex; 
+    display: flex;
     align-items: center;
-    gap: 1.5rem; 
-    padding: 18px 0; 
-    color: #555; 
+    gap: 1.5rem;
+    padding: 18px 0;
+    color: #555;
     font-size: 1.15rem;
-    border-bottom: 1px solid #f0f0f0; 
+    border-bottom: 1px solid #f0f0f0;
     transition: background-color 0.2s ease-in-out;
 }
 
@@ -666,13 +647,13 @@ body.no-scroll {
 
 .contact-item i,
 .facility-item i {
-    color: #3499db; 
-    font-size: 3rem; 
-    width: 80px; 
-    height: 80px; 
-    flex-shrink: 0; 
-    display: flex; 
-    justify-content: center; 
+    color: #1A531A; /* Changed from #3499db */
+    font-size: 3rem;
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -681,7 +662,6 @@ body.no-scroll {
     line-height: 1.4;
 }
 
-/* Profile Stats */
 .profile-stats {
     margin-top: 4rem;
 }
@@ -711,7 +691,7 @@ body.no-scroll {
 
 .stat-card i {
     font-size: 3rem;
-    color: #3498db;
+    color: #1A531A; /* Changed from #3498db */
     margin-bottom: 1rem;
 }
 
@@ -726,7 +706,6 @@ body.no-scroll {
     color: #666;
 }
 
-/* --- Visi & Misi Page Styles --- */
 .vision-section,
 .mission-section {
     margin-bottom: 4rem;
@@ -742,7 +721,7 @@ body.no-scroll {
 }
 
 .card-header {
-    background: linear-gradient(135deg, #3498db, #2980b9);
+    background: linear-gradient(135deg, #1A531A, #0F330F); /* Changed from #3498db, #2980b9 */
     color: white;
     padding: 2rem;
     text-align: center;
@@ -780,7 +759,7 @@ body.no-scroll {
     color: #2c3e50;
     font-style: italic;
     text-align: center;
-    border-left: 4px solid #3498db;
+    border-left: 4px solid #1A531A; /* Changed from #3498db */
     padding-left: 1rem;
     margin: 0;
 }
@@ -810,7 +789,7 @@ body.no-scroll {
 }
 
 .explanation-item i {
-    color: #3498db;
+    color: #1A531A; /* Changed from #3498db */
     font-size: 1.5rem;
     margin-top: 0.25rem;
     flex-shrink: 0;
@@ -829,7 +808,6 @@ body.no-scroll {
     margin: 0;
 }
 
-/* Mission List */
 .mission-list {
     display: flex;
     flex-direction: column;
@@ -843,7 +821,7 @@ body.no-scroll {
 }
 
 .mission-number {
-    background: linear-gradient(135deg, #3498db, #2980b9);
+    background: linear-gradient(135deg, #1A531A, #0F330F); /* Changed from #3498db, #2980b9 */
     color: white;
     width: 60px;
     height: 60px;
@@ -879,11 +857,10 @@ body.no-scroll {
     padding: 0.25rem 0.75rem;
     border-radius: 15px;
     font-size: 0.8rem;
-    color: #3498db;
-    border: 1px solid #3498db;
+    color: #1A531A; /* Changed from #3498db */
+    border: 1px solid #1A531A; /* Changed from #3498db */
 }
 
-/* Objectives Section */
 .objectives-section {
     margin: 4rem 0;
 }
@@ -911,7 +888,7 @@ body.no-scroll {
 }
 
 .obj-icon {
-    background: linear-gradient(135deg, #3498db, #2980b9);
+    background: linear-gradient(135deg, #1A531A, #0F330F); /* Changed from #3498db, #2980b9 */
     color: white;
     width: 60px;
     height: 60px;
@@ -948,7 +925,7 @@ body.no-scroll {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #3498db;
+    color: #1A531A; /* Changed from #3498db */
     font-size: 0.9rem;
 }
 
@@ -956,7 +933,6 @@ body.no-scroll {
     font-size: 0.8rem;
 }
 
-/* Strategy Timeline */
 .strategy-section {
     margin: 4rem 0;
 }
@@ -971,7 +947,7 @@ body.no-scroll {
 .strategy-timeline {
     position: relative;
     padding-left: 2rem;
-    max-width: 800px; /* Constrain width for better readability */
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -982,7 +958,7 @@ body.no-scroll {
     top: 0;
     bottom: 0;
     width: 3px;
-    background: linear-gradient(to bottom, #3498db, #2980b9);
+    background: linear-gradient(to bottom, #1A531A, #0F330F); /* Changed from #3498db, #2980b9 */
     border-radius: 2px;
 }
 
@@ -999,15 +975,15 @@ body.no-scroll {
     top: 0.5rem;
     width: 20px;
     height: 20px;
-    background: #3498db;
+    background: #1A531A; /* Changed from #3498db */
     border-radius: 50%;
     border: 3px solid white;
-    box-shadow: 0 0 0 3px #3498db;
+    box-shadow: 0 0 0 3px #1A531A; /* Changed from #3498db */
     z-index: 1;
 }
 
 .timeline-period {
-    background: linear-gradient(135deg, #3498db, #2980b9);
+    background: linear-gradient(135deg, #1A531A, #0F330F); /* Changed from #3498db, #2980b9 */
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 20px;
@@ -1036,13 +1012,12 @@ body.no-scroll {
 
 .timeline-content li::before {
     content: '▶';
-    color: #3498db;
+    color: #1A531A; /* Changed from #3498db */
     position: absolute;
     left: 0;
     top: 0.5rem;
 }
 
-/* Success Indicators */
 .success-indicators {
     margin: 4rem 0;
 }
@@ -1079,7 +1054,7 @@ body.no-scroll {
 
 .indicator-header i {
     font-size: 2rem;
-    color: #3498db;
+    color: #1A531A; /* Changed from #3498db */
 }
 
 .indicator-header h4 {
@@ -1106,10 +1081,8 @@ body.no-scroll {
     font-size: 0.9rem;
 }
 
-/* --- History Page Styles --- */
 .history-hero {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 3rem;
     align-items: center;
     margin-bottom: 4rem;
@@ -1145,7 +1118,6 @@ body.no-scroll {
     margin-bottom: 1rem;
 }
 
-/* Origin Section */
 .origin-section {
     margin-bottom: 4rem;
 }
@@ -1174,7 +1146,7 @@ body.no-scroll {
 }
 
 .story-icon {
-    background: linear-gradient(135deg, #3498db, #2980b9);
+    background: linear-gradient(135deg, #1A531A, #0F330F); /* Changed from #3498db, #2980b9 */
     color: white;
     width: 80px;
     height: 80px;
@@ -1200,7 +1172,6 @@ body.no-scroll {
     line-height: 1.6;
 }
 
-/* History Timeline Section */
 .timeline-section {
     margin: 4rem 0;
 }
@@ -1225,7 +1196,7 @@ body.no-scroll {
     top: 0;
     bottom: 0;
     width: 4px;
-    background: linear-gradient(to bottom, #3498db, #2980b9);
+    background: linear-gradient(to bottom, #1A531A, #0F330F); /* Changed from #3498db, #2980b9 */
     transform: translateX(-50%);
     border-radius: 2px;
 }
@@ -1260,7 +1231,7 @@ body.no-scroll {
 .timeline-date .year {
     font-size: 2rem;
     font-weight: bold;
-    color: #3498db;
+    color: #1A531A; /* Changed from #3498db */
     margin-bottom: 0.5rem;
 }
 
@@ -1305,14 +1276,13 @@ body.no-scroll {
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
-    color: #3498db;
+    color: #1A531A; /* Changed from #3498db */
 }
 
 .detail-item i {
     font-size: 0.8rem;
 }
 
-/* Historical Figures */
 .historical-figures {
     margin: 4rem 0;
 }
@@ -1345,7 +1315,7 @@ body.no-scroll {
 
 .figure-avatar i {
     font-size: 4rem;
-    color: #3498db;
+    color: #1A531A; /* Changed from #3498db */
 }
 
 .figure-info h4 {
@@ -1355,7 +1325,7 @@ body.no-scroll {
 }
 
 .figure-role {
-    color: #3498db;
+    color: #1A531A; /* Changed from #3498db */
     font-weight: 500;
     margin-bottom: 1rem;
     font-size: 0.9rem;
@@ -1367,7 +1337,6 @@ body.no-scroll {
     font-size: 0.95rem;
 }
 
-/* Culture and Tradition */
 .culture-tradition {
     margin: 4rem 0;
 }
@@ -1394,7 +1363,7 @@ body.no-scroll {
 }
 
 .culture-icon {
-    background: linear-gradient(135deg, #3498db, #2980b9);
+    background: linear-gradient(135deg, #1A531A, #0F330F); /* Changed from #3498db, #2980b9 */
     color: white;
     width: 60px;
     height: 60px;
@@ -1432,11 +1401,10 @@ body.no-scroll {
     padding: 0.25rem 0.75rem;
     border-radius: 15px;
     font-size: 0.8rem;
-    color: #3498db;
-    border: 1px solid #3498db;
+    color: #1A531A; /* Changed from #3498db */
+    border: 1px solid #1A531A; /* Changed from #3498db */
 }
 
-/* Historical Events */
 .historical-events {
     margin: 4rem 0;
 }
@@ -1465,7 +1433,7 @@ body.no-scroll {
 }
 
 .event-year {
-    background: linear-gradient(135deg, #3498db, #2980b9);
+    background: linear-gradient(135deg, #1A531A, #0F330F); /* Changed from #3498db, #2980b9 */
     color: white;
     padding: 1rem;
     border-radius: 10px;
@@ -1487,7 +1455,6 @@ body.no-scroll {
     line-height: 1.6;
 }
 
-/* Modern Development */
 .modern-development {
     margin: 4rem 0;
 }
@@ -1516,7 +1483,7 @@ body.no-scroll {
 
 .dev-card i {
     font-size: 3rem;
-    color: #3498db;
+    color: #1A531A; /* Changed from #3498db */
     margin-bottom: 1rem;
 }
 
@@ -1531,11 +1498,10 @@ body.no-scroll {
     line-height: 1.6;
 }
 
-/* --- Map Specific Styles --- */
 .village-stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusted minmax to ensure at least 200px width per column */
-    gap: 2rem; /* Adjusted gap for better spacing */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
     margin-bottom: 4rem;
     text-align: center;
 }
@@ -1550,7 +1516,7 @@ body.no-scroll {
 
 .stat-card-map i {
     font-size: 3rem;
-    color: #3498db;
+    color: #1A531A; /* Changed from #3498db */
     margin-bottom: 1rem;
 }
 
@@ -1587,14 +1553,13 @@ body.no-scroll {
     margin-bottom: 2rem;
 }
 
-/* Updated map-placeholder to correctly contain the iframe and make it responsive */
 .map-placeholder {
     width: 100%;
-    position: relative; 
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio (e.g., for 800x450 iframe) */
+    position: relative;
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
-    background: linear-gradient(135deg, #a7bfe8, #619af0); /* Fallback/loading background */
+    background: linear-gradient(135deg, #a7bfe8, #619af0); /* Kept these colors as they are for a map-like feel, but they could also be changed to greens if desired */
     border-radius: 10px;
     box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
 }
@@ -1606,29 +1571,18 @@ body.no-scroll {
     width: 100%;
     height: 100%;
     border: 0;
-    display: block; /* Ensure it behaves as a block element */
-    border-radius: 8px; /* Apply border-radius to the iframe itself */
+    display: block;
+    border-radius: 8px;
 }
 
-/* Custom map markers and tooltips are now hidden by default in this setup, 
-   as they don't overlay correctly on a simple Google Maps iframe embed.
-   If custom interactive markers are desired, a more advanced solution using 
-   Google Maps JavaScript API would be needed. */
 .map-marker {
-    display: none; 
+    display: none;
 }
 
 .marker-tooltip {
-    display: none; 
+    display: none;
 }
 
-
-/* Specific marker positions (example, these are effectively hidden) */
-.marker-village { top: 40%; left: 50%; }
-.marker-school { top: 25%; left: 30%; }
-.marker-health { top: 60%; left: 70%; }
-.marker-mosque { top: 75%; left: 45%; }
-.marker-market { top: 30%; left: 65%; }
 
 .map-info-grid {
     display: grid;
@@ -1680,7 +1634,7 @@ body.no-scroll {
 }
 
 .map-list-icon {
-    color: #3498db;
+    color: #1A531A; /* Changed from #3498db */
     width: 20px;
     flex-shrink: 0;
 }
@@ -1716,7 +1670,7 @@ body.no-scroll {
 
 .region-card-bordered-red { border-color: #e74c3c; }
 .region-card-bordered-green { border-color: #2ecc71; }
-.region-card-bordered-blue { border-color: #3498db; }
+.region-card-bordered-blue { border-color: #1A531A; } /* Changed from #3498db */
 .region-card-bordered-orange { border-color: #e67e22; }
 .region-card-bordered-purple { border-color: #9b59b6; }
 
@@ -1777,7 +1731,7 @@ body.no-scroll {
     text-align: center;
 }
 
-.public-facility-icon-blue { color: #3498db; }
+.public-facility-icon-blue { color: #1A531A; } /* Changed from #3498db */
 .public-facility-icon-green { color: #2ecc71; }
 .public-facility-icon-purple { color: #9b59b6; }
 .public-facility-icon-orange { color: #e67e22; }
@@ -1834,7 +1788,7 @@ body.no-scroll {
 
 .topography-icon-red { color: #e74c3c; }
 .topography-icon-green { color: #2ecc71; }
-.topography-icon-blue { color: #3498db; }
+.topography-icon-blue { color: #1A531A; } /* Changed from #3498db */
 
 .topo-card-title {
     color: #2c3e50;
@@ -1867,66 +1821,34 @@ body.no-scroll {
     color: #34495e;
 }
 
-/* Specific styles for Potensi Desa page grids */
 .potensi-wisata-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
 }
 
 .row-potensi-alam {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem; /* Add gap for consistent spacing between columns */
-    justify-content: center; /* Center items if they don't fill the row */
+    gap: 2rem;
+    justify-content: center;
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
 
-.row-potensi-alam > div { /* Targeting the col-md-6 elements */
-    flex: 1 1 calc(50% - 1rem); /* Distribute space, accounting for gap */
-    max-width: calc(50% - 1rem); /* Max width to ensure two columns on larger screens */
-    box-sizing: border-box; /* Include padding/border in element's total width */
-    /* Ensure content image within these divs is responsive */
-    text-align: center; /* Center the image within its column */
-}
-
-/* Structure Organisasi placeholder style */
-.placeholder-content {
+.row-potensi-alam > div {
+    flex: 1 1 calc(50% - 1rem);
+    max-width: calc(50% - 1rem);
+    box-sizing: border-box;
     text-align: center;
-    padding: 3rem 0;
-    background: #f8f9fa;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    margin-top: 3rem;
 }
-
-.placeholder-text {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 1.5rem;
-    line-height: 1.8;
-}
-
-.placeholder-icon {
-    font-size: 4rem;
-    color: #3498db;
-    margin-bottom: 1.5rem;
-}
-
-.placeholder-note {
-    font-style: italic;
-    color: #777;
-    font-size: 0.9rem;
-}
-
 
 /* ===================================== */
 /* 5. Footer Styles                      */
 /* ===================================== */
 
 .footer {
-    background: #2c3e50;
+    background: #1A531A;
     color: white;
     padding: 3rem 0 1rem;
     margin-top: 4rem;
@@ -1940,7 +1862,7 @@ body.no-scroll {
 }
 
 .footer-section h4 {
-    color: #3498db;
+    color: white;
     margin-bottom: 1rem;
     font-size: 1.2rem;
 }
@@ -1952,14 +1874,14 @@ body.no-scroll {
 }
 
 .footer-section i {
-    color: #3498db;
+    color: white;
     margin-right: 0.5rem;
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid #34495e;
+    border-top: 1px solid #1A531A;
     opacity: 0.8;
 }
 
@@ -1969,7 +1891,7 @@ body.no-scroll {
 /* ===================================== */
 
 #modal-backdrop {
-    display: none; /* Controlled by JS */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -1989,7 +1911,7 @@ body.no-scroll {
 }
 
 #modal-content {
-    background: white;
+    background: #F5F5DC;
     padding: 2rem;
     border-radius: 10px;
     max-width: 550px;
@@ -2049,11 +1971,10 @@ body.no-scroll {
 }
 
 .animate-in {
-    opacity: 1 !important; /* Memastikan visibilitas */
-    transform: translateY(0) !important; /* Memastikan posisi */
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }
 
-/* Specific timeline item animations (optional, can be combined with general) */
 .timeline-item:nth-child(odd) .timeline-content.animate-in {
     animation: slideInLeft 0.6s ease-out forwards;
 }
@@ -2077,7 +1998,6 @@ body.no-scroll {
 /* 8. Responsive Design Media Queries    */
 /* ===================================== */
 
-/* Medium devices (tablets, 768px and up) */
 @media (max-width: 992px) {
     .nav-menu {
         flex-wrap: wrap;
@@ -2090,7 +2010,7 @@ body.no-scroll {
     .profile-hero,
     .history-hero {
         grid-template-columns: 1fr;
-        gap: 2rem; /* Mengurangi jarak untuk layar kecil */
+        gap: 2rem;
     }
     .profile-main {
         grid-template-columns: 1fr;
@@ -2100,26 +2020,25 @@ body.no-scroll {
     }
     .timeline-item {
         flex-direction: column;
-        align-items: flex-start; /* Align content to the left for vertical timeline */
+        align-items: flex-start;
         padding-left: 60px;
     }
     .timeline-item:nth-child(even) {
-        flex-direction: column; /* Ensure consistent column layout for both even/odd */
+        flex-direction: column;
     }
     .timeline::before {
         left: 20px;
         transform: translateX(0);
     }
     .strategy-timeline .timeline-item::before,
-    .timeline-item::before { /* Adjust marker position for vertical timeline */
-        left: 20px; /* Position directly on the line */
-        transform: translateX(-50%); /* Center the circle on the line */
+    .timeline-item::before {
+        left: 20px;
+        transform: translateX(-50%);
     }
     .timeline-date {
-        /* Removed margin-left to prevent overflow on mobile */
         margin-bottom: 1rem;
-        text-align: left; /* Align date to the left */
-        padding-left: 0; /* Ensure no extra padding from previous rules */
+        text-align: left;
+        padding-left: 0;
     }
     .timeline-content.animate-in {
         animation: slideInUp 0.6s ease-out forwards !important;
@@ -2129,7 +2048,6 @@ body.no-scroll {
         to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Menyesuaikan grid untuk 2 kolom pada tablet jika sebelumnya 3+ */
     .explanation-grid,
     .objectives-grid,
     .figures-grid,
@@ -2141,10 +2059,10 @@ body.no-scroll {
     .topo-grid,
     .potensi-wisata-grid,
     .stats-grid,
-    .village-stats, /* Perbaikan khusus untuk village-stats */
+    .village-stats,
     .indicators-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem; /* Mengurangi jarak */
+        gap: 1.5rem;
     }
     .demographic-grid {
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -2154,171 +2072,298 @@ body.no-scroll {
         flex-direction: column;
         gap: 2rem;
     }
-    .row-potensi-alam > div { /* Target the direct children (col-md-6) */
+    .row-potensi-alam > div {
         flex: 0 0 100%;
         max-width: 100%;
     }
 }
 
-/* Add col-md-6 behavior for larger screens (desktop/tablet) */
 @media (min-width: 769px) {
     .row-potensi-alam {
         display: flex;
         flex-wrap: wrap;
-        margin-right: -1rem; /* Adjust negative margins for gap */
+        margin-right: -1rem;
         margin-left: -1rem;
     }
     .row-potensi-alam .col-md-6 {
-        flex: 0 0 calc(50% - 2rem); /* 50% width minus combined gap */
+        flex: 0 0 calc(50% - 2rem);
         max-width: calc(50% - 2rem);
-        padding-right: 1rem; /* Add padding to simulate gap */
+        padding-right: 1rem;
         padding-left: 1rem;
     }
 }
 
 
-/* Small devices (phones, 767px and below) */
 @media (max-width: 767px) {
     .header {
-        padding: 2.5rem 0;
+        padding: 2rem 0; 
     }
     .header h1 {
-        font-size: 2.2rem;
+        font-size: 2rem; 
     }
     .logo i {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
     .tagline {
-        font-size: 1rem;
+        font-size: 0.9rem;
+    }
+    .section {
+        padding: 2rem 0;
+    }
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
     }
 
+    /* Navigasi */
+    .nav {
+        position: static; 
+        box-shadow: none;
+    }
     .nav-container {
         justify-content: space-between;
+        padding: 0 15px;
+        min-height: 50px;
+        align-items: center;
     }
-
     .nav-menu {
         flex-direction: column;
         gap: 0;
-        display: none;
+        display: flex;
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
-        background: rgba(52, 73, 94, 0.98);
+        background: rgba(26, 83, 26, 0.98);
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         width: 100%;
         text-align: center;
-        max-height: 0; 
+        max-height: 0;
         overflow: hidden;
         transition: max-height 0.4s ease-out;
-        padding-bottom: 10px; 
+        padding-bottom: 0;
+        pointer-events: none; 
     }
-    
     .nav-menu.active {
-        display: flex;
         max-height: 500px;
-        overflow-y: auto; 
+        overflow-y: auto;
+        padding-bottom: 10px;
+        pointer-events: auto;
+        z-index: 1002;
     }
-
     .nav-link {
         padding: 0.75rem 1rem;
         justify-content: center;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.9rem;
     }
     .nav-menu li:last-child .nav-link {
         border-bottom: none;
     }
-
     .hamburger {
         display: flex;
+        position: static;
+        transform: none;
+        width: 30px;
+        height: 25px;
     }
-    
-    .section {
-        padding: 2rem 0;
+    .hamburger span {
+        background-color: white;
     }
-    
-    .section-title {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-    }
-    
-    /* Memaksa satu kolom untuk sebagian besar grid pada layar sangat kecil */
-    .geographic-info,
-    .demographic-grid,
-    .stats-grid,
-    .objectives-grid,
-    .figures-grid,
-    .culture-grid,
-    .development-cards,
-    .map-info-grid,
-    .regions-grid,
-    .facilities-grid,
-    .topo-grid,
-    .potensi-wisata-grid,
-    .livelihood-stats,
-    .village-stats, 
-    .explanation-grid,
-    .indicators-grid {
+
+    /* Layout Umum */
+    .profile-hero,
+    .history-hero {
         grid-template-columns: 1fr;
-        gap: 1.5rem; 
+        gap: 2rem;
     }
-    
-    .border-grid {
+    .profile-main {
         grid-template-columns: 1fr;
-        grid-template-rows: auto;
+        gap: 2rem;
     }
-    
-    .border-item.north,
-    .border-item.south {
-        grid-column: 1;
+    .profile-sidebar {
+        gap: 2rem;
     }
-    
+    .profile-intro h3, .hero-text h3 {
+        font-size: 1.5rem;
+    }
+    .profile-text h4 {
+        font-size: 1.2rem;
+    }
+    .profile-text p {
+        font-size: 0.95rem;
+    }
+    .profile-stats h3 {
+        font-size: 1.8rem;
+    }
+    .stats-grid, .livelihood-stats, .demographic-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .origin-content {
+        grid-template-columns: 1fr;
+    }
+
+    /* Visi & Misi */
+    .vision-card blockquote {
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+    .explanation-grid {
+        grid-template-columns: 1fr;
+    }
+    .mission-list {
+        gap: 1.5rem;
+    }
     .mission-item {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
-    
-    .mission-targets {
-        justify-content: center;
+    .mission-number {
+        margin-bottom: 1rem;
     }
-    
+    .objectives-grid {
+        grid-template-columns: 1fr;
+    }
+    .strategy-timeline {
+        padding-left: 2rem;
+    }
+    .strategy-timeline::before {
+        left: 20px;
+    }
+    .strategy-timeline .timeline-item {
+        margin-left: 0;
+        padding-left: 2rem;
+    }
+    .strategy-timeline .timeline-item::before {
+        left: 20px;
+    }
+    .success-indicators h3 {
+        font-size: 1.8rem;
+    }
+    .indicators-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Sejarah */
+    .timeline {
+        padding: 0 1rem;
+    }
+    .timeline::before {
+        left: 20px;
+        transform: translateX(0);
+    }
+    .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 2rem 0;
+        padding-left: 60px;
+    }
+    .timeline-item:nth-child(even) {
+        flex-direction: column;
+    }
+    .timeline-item .timeline-content {
+        text-align: left;
+        padding: 1rem;
+    }
+    .timeline-item .timeline-date {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: none;
+        margin: 0;
+        padding: 0.5rem 1rem;
+    }
+    .timeline-item .timeline-date .year {
+        font-size: 1.5rem;
+    }
+    .timeline-item .timeline-date .era {
+        font-size: 0.8rem;
+    }
+    .timeline-item::before {
+        left: 20px;
+        transform: translateX(-50%);
+    }
+    .timeline-content.animate-in {
+        animation: slideInUp 0.6s ease-out forwards !important;
+    }
+    .figures-grid, .culture-grid, .development-cards {
+        grid-template-columns: 1fr;
+    }
+    .events-timeline {
+        padding: 0 1rem;
+    }
     .event-item {
         flex-direction: column;
-        gap: 1rem;
+        align-items: flex-start;
     }
-    
     .event-year {
         align-self: flex-start;
-        min-width: auto;
+        margin-bottom: 1rem;
     }
 
-    .profile-sidebar {
+    /* Peta Wilayah */
+    .village-stats,
+    .map-info-grid,
+    .regions-grid,
+    .facilities-grid,
+    .topo-grid {
+        grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    .info-box, .contact-box, .facilities-box {
-        padding: 1rem;
+    .region-division-title, .public-facilities-title, .topography-title {
+        font-size: 1.8rem;
     }
-    .stat-card, .demo-card {
-        padding: 1rem;
+    .map-card-title, .region-card-title, .public-facility-title, .topo-card-title {
+        font-size: 1.2rem;
     }
-    .stat-card i, .demo-card i {
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
-    }
-    .stat-value, .demo-number {
-        font-size: 1.5rem;
+    .map-card-description, .region-card-description, .facility-item li, .topo-card-description {
+        font-size: 0.85rem;
     }
 
-    #modal-content {
-        padding: 1.5rem;
+    /* Batas Wilayah (disempurnakan) */
+    .border-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "utara utara"
+            "barat timur"
+            "selatan selatan";
+        gap: 1rem;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0;
     }
-    .modal-title {
-        font-size: 1.5rem;
+
+    .border-item {
+        padding: 1.5rem 1rem;
+        width: auto;
+        justify-self: stretch;
     }
+
+    .border-item.north {
+        grid-area: utara;
+        width: 100%;
+        justify-self: center;
+    }
+
+    .border-item.east {
+        grid-area: timur;
+    }
+
+    .border-item.west {
+        grid-area: barat;
+    }
+
+    .border-item.south {
+        grid-area: selatan;
+        width: 100%;
+        justify-self: center;
+    }
+    /* Akhir Perbaikan Batas Wilayah */
 }
 
-/* Very small devices (extra small phones, 480px and below) */
 @media (max-width: 480px) {
     .container {
         padding: 0 15px;
@@ -2330,26 +2375,21 @@ body.no-scroll {
         font-size: 1.8rem;
     }
     .section-title {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
     .profile-image .image-placeholder {
         height: 250px;
     }
     .map-placeholder {
-        height: 350px;
+        padding-bottom: 75%;
     }
-    .map-marker {
-        width: 30px;
-        height: 30px;
+    .region-card-details p, .facility-item li {
         font-size: 0.8rem;
-    }
-
-    .marker-tooltip {
-        font-size: 0.7rem;
-        padding: 0.4rem 0.8rem;
     }
     .footer-content {
         grid-template-columns: 1fr;
+    }
+    .footer-section {
         text-align: center;
     }
     .footer-section p {
@@ -2360,15 +2400,13 @@ body.no-scroll {
     }
 }
 
-/* New/Updated styles for iframe and its container */
-/* This specific class was in your HTML, adjusting its styles */
-.map-placeholder { /* This class is already on the div containing the iframe */
+.map-placeholder {
   width: 100%;
   position: relative;
-  padding-bottom: 56.25%; /* For a 16:9 aspect ratio (height is 56.25% of width) */
-  height: 0; /* Important for padding-bottom trick to work */
+  padding-bottom: 56.25%;
+  height: 0;
   overflow: hidden;
-  background: linear-gradient(135deg, #a7bfe8, #619af0); /* Fallback/loading background */
+  background: linear-gradient(135deg, #a7bfe8, #619af0);
   border-radius: 10px;
   box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
 }
@@ -2380,16 +2418,22 @@ body.no-scroll {
   width: 100%;
   height: 100%;
   border: 0;
-  display: block; /* Ensure it behaves as a block element */
-  border-radius: 8px; /* Apply border-radius to the iframe itself */
+  display: block;
+  border-radius: 8px;
 }
 
-.map-marker {
-    display: none; 
+.struktur-organisasi-container {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+    text-align: center;
 }
 
-.marker-tooltip {
-    display: none; 
+.struktur-organisasi-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e0e0e0;
 }
-
-/* Removed an extra closing curly brace '}' from the end of your style.css in previous version */
